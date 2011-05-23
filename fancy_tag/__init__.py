@@ -49,6 +49,8 @@ def fancy_tag_compiler(params, defaults, takes_var_args, takes_var_kwargs, takes
             if kwarg_found:
                 raise TemplateSyntaxError("%s got non-keyword arg after keyword arg" % name)
             else:
+                if bit == 'for':
+                    continue
                 args.append(bit)
                 try:
                     handled_params.append(unhandled_params.pop(0))
